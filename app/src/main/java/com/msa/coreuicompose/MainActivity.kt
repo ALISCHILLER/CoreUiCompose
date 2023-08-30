@@ -9,10 +9,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.msa.coreuicompose.loading.LoadingThreePoints
+import com.msa.corebase.models.base.UseCaseState
+import com.msa.coreui.loading.LoadingThreePoints
 import com.msa.coreuicompose.ui.theme.CoreUiComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +33,11 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        LoadingThreePoints()
+                        //LoadingThreePoints()
+                        val currentSample = rememberSaveable { mutableStateOf<Sample?>(null) }
+                        val onReset = { currentSample.value = null }
+                        val onResetSheet: UseCaseState.() -> Unit = { currentSample.value = null }
+                            CalendarSample1(onResetSheet)
                     }
 
                 }
@@ -50,7 +57,7 @@ fun GreetingPreview() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            LoadingThreePoints()
+            com.msa.coreui.loading.LoadingThreePoints()
         }
     }
 }

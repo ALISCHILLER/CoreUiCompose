@@ -1,4 +1,4 @@
-package com.msa.coreuicompose.loading
+package com.msa.coreui.loading
 
 
 import androidx.compose.animation.core.Animatable
@@ -21,7 +21,6 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.*
-import com.msa.coreuicompose.ui.theme.*
 import kotlinx.coroutines.delay
 
 
@@ -29,7 +28,7 @@ import kotlinx.coroutines.delay
 fun LoadingThreePoints(
     modifier: Modifier = Modifier,
     circleSize: Dp = 25.dp,
-    circleColor: Color = yellow400,
+    circleColor: Color =Color.Yellow,
     spaceBetween: Dp = 10.dp,
     travelDistance: Dp = 20.dp
 ) {

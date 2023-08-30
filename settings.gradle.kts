@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Core Ui Compose"
 include(":app")
- 
+include(":CoreUi")
+include(":corebase")
