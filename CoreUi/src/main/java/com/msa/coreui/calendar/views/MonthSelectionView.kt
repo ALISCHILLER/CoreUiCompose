@@ -18,6 +18,7 @@ package com.msa.coreui.calendar.views
 import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.lazy.grid.items
 import com.msa.coreui.calendar.models.CalendarMonthData
+import com.msa.coreui.calendar.utils.PersianMonth
 import java.time.Month
 
 /**
@@ -27,9 +28,9 @@ import java.time.Month
  */
 internal fun LazyGridScope.setupMonthSelectionView(
     monthsData: CalendarMonthData,
-    onMonthClick: (Month) -> Unit,
+    onMonthClick: (PersianMonth) -> Unit,
 ) {
-    items(Month.values()) { month ->
+    items(PersianMonth.values()) { month ->
         val selected = monthsData.selected == month
         val disabled = monthsData.disabled.contains(month)
         val thisMonth = monthsData.thisMonth == month
@@ -43,3 +44,19 @@ internal fun LazyGridScope.setupMonthSelectionView(
     }
 }
 
+fun Month.toPersianMonth(): PersianMonth {
+    return when (this) {
+        Month.JANUARY -> PersianMonth.FARVARDIN
+        Month.FEBRUARY -> PersianMonth.ORDIBEHESHT
+        Month.MARCH -> PersianMonth.KHORDAD
+        Month.APRIL -> PersianMonth.TIR
+        Month.MAY -> PersianMonth.MORDAD
+        Month.JUNE -> PersianMonth.SHAHRIVAR
+        Month.JULY -> PersianMonth.MEHR
+        Month.AUGUST -> PersianMonth.ABAN
+        Month.SEPTEMBER -> PersianMonth.AZAR
+        Month.OCTOBER -> PersianMonth.DEY
+        Month.NOVEMBER -> PersianMonth.BAHMAN
+        Month.DECEMBER -> PersianMonth.ESFAND
+    }
+}

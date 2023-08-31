@@ -31,6 +31,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.style.TextAlign
 import com.msa.coreui.calendar.utils.Constants
+import com.msa.coreui.calendar.utils.PersianMonth
 import java.time.LocalDate
 import java.time.Month
 import java.time.format.DateTimeFormatter
@@ -45,7 +46,7 @@ import com.msa.corebase.R as RC
  */
 @Composable
 internal fun MonthItemComponent(
-    month: Month,
+    month: PersianMonth,
     thisMonth: Boolean = false,
     disabled: Boolean = false,
     selected: Boolean = false,

@@ -215,13 +215,36 @@ internal val List<LocalDate?>.endValue: LocalDate?
 /**
  * Calculate the month data based on the camera date and the restrictions.
  */
+//@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
+//internal fun calcMonthData(
+//    config: CalendarConfig,
+//    cameraDate: LocalDate,
+//    today: LocalDate = LocalDate.now()
+//): CalendarMonthData {
+//    val months = Month.values().toMutableList()
+//
+//    // Check that months are within the boundary
+//    val boundaryFilteredMonths = months.filter { month ->
+//        val maxDayOfMonth = month.length(cameraDate.isLeapYear)
+//        val startDay = minOf(config.boundary.start.dayOfMonth, maxDayOfMonth)
+//        val endDay = minOf(config.boundary.endInclusive.dayOfMonth, maxDayOfMonth)
+//        val cameraDateWithMonth = cameraDate.withMonth(month.value).withDayOfMonth(startDay)
+//        cameraDateWithMonth in config.boundary || cameraDateWithMonth.withDayOfMonth(endDay) in config.boundary
+//    }
+//
+//    return CalendarMonthData(
+//        selected = cameraDate.month,
+//        thisMonth = today.month,
+//        disabled = months.minus(boundaryFilteredMonths.toSet()),
+//    )
+//}
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-internal fun calcMonthData(
+internal fun calcPersianMonthData(
     config: CalendarConfig,
     cameraDate: LocalDate,
     today: LocalDate = LocalDate.now()
 ): CalendarMonthData {
-    val months = Month.values().toMutableList()
+    val months = PersianMonth.values().toMutableList()
 
     // Check that months are within the boundary
     val boundaryFilteredMonths = months.filter { month ->
@@ -233,12 +256,28 @@ internal fun calcMonthData(
     }
 
     return CalendarMonthData(
-        selected = cameraDate.month,
-        thisMonth = today.month,
+        selected = cameraDate.month.toPersianMonth(),
+        thisMonth = today.month.toPersianMonth(),
         disabled = months.minus(boundaryFilteredMonths.toSet()),
     )
 }
 
+fun Month.toPersianMonth(): PersianMonth {
+    return when (this) {
+        Month.JANUARY -> PersianMonth.FARVARDIN
+        Month.FEBRUARY -> PersianMonth.ORDIBEHESHT
+        Month.MARCH -> PersianMonth.KHORDAD
+        Month.APRIL -> PersianMonth.TIR
+        Month.MAY -> PersianMonth.MORDAD
+        Month.JUNE -> PersianMonth.SHAHRIVAR
+        Month.JULY -> PersianMonth.MEHR
+        Month.AUGUST -> PersianMonth.ABAN
+        Month.SEPTEMBER -> PersianMonth.AZAR
+        Month.OCTOBER -> PersianMonth.DEY
+        Month.NOVEMBER -> PersianMonth.BAHMAN
+        Month.DECEMBER -> PersianMonth.ESFAND
+    }
+}
 /**
  * Calculate the calendar data based on the camera-date.
  */
