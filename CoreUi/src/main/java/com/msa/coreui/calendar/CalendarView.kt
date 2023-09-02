@@ -38,13 +38,6 @@ import com.msa.coreui.calendar.views.*
 import java.time.LocalDate
 import java.util.Locale
 
-/**
- * Calendar dialog for the use-case to select a date or period in a typical calendar-view.
- * @param useCaseState The state of the sheet.
- * @param selection The selection configuration for the dialog view.
- * @param config The general configuration for the dialog view.
- * @param header The header to be displayed at the top of the dialog view.
- */
 @ExperimentalMaterial3Api
 @Composable
 fun CalendarView(
@@ -75,9 +68,7 @@ fun CalendarView(
         }
     }
 
-    val persianLocale = Locale("fa_IR", "IR")
-  //  val weekdays = remember { getDayOfWeekLabels(config.locale) }
-    val weekdays = remember { getDayOfWeekLabels(persianLocale) }
+    val weekdays = remember { getDayOfWeekLabels(config.locale) }
 
     val density = LocalDensity.current
     FrameBase(

@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -29,15 +30,16 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Column(
-                        modifier=Modifier.fillMaxSize(),
+                        modifier = Modifier.fillMaxSize(),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
+
                         //LoadingThreePoints()
                         val currentSample = rememberSaveable { mutableStateOf<Sample?>(null) }
                         val onReset = { currentSample.value = null }
                         val onResetSheet: UseCaseState.() -> Unit = { currentSample.value = null }
-                            CalendarSample1(onResetSheet)
+                        CalendarSample1(closeSelection = onResetSheet)
                     }
 
                 }
@@ -47,13 +49,17 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@Composable
+fun show(closeSelection: UseCaseState.() -> Unit) {
+
+}
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     CoreUiComposeTheme {
         Column(
-            modifier=Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

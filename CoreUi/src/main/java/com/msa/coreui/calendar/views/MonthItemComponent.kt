@@ -46,7 +46,7 @@ import com.msa.corebase.R as RC
  */
 @Composable
 internal fun MonthItemComponent(
-    month: PersianMonth,
+    month: Month,
     thisMonth: Boolean = false,
     disabled: Boolean = false,
     selected: Boolean = false,

@@ -25,7 +25,7 @@ import java.time.Month
  * @param thisMonth the current month.
  */
 internal data class CalendarMonthData(
-    val selected: PersianMonth,
-    val disabled: List<PersianMonth>,
-    val thisMonth: PersianMonth,
+    val selected: Month,
+    val disabled: List<Month>,
+    val thisMonth: Month,
 )

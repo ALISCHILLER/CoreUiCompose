@@ -76,7 +76,7 @@ internal class CalendarState(
         config.boundary.start.year..config.boundary.endInclusive.year
 
     private fun getInitMonthsData(): CalendarMonthData =
-        calcPersianMonthData(config, cameraDate)
+        calcMonthData(config, cameraDate)
 
     private fun getInitCalendarData(): CalendarData {
         return calcCalendarData(config, cameraDate)
@@ -178,7 +178,7 @@ internal class CalendarState(
         }
     }
 
-    fun onMonthClick(month: PersianMonth) {
+    fun onMonthClick(month: Month) {
         cameraDate = cameraDate.withMonth(month.value).startOfWeekOrMonth
         mode = CalendarDisplayMode.CALENDAR
         refreshData()
