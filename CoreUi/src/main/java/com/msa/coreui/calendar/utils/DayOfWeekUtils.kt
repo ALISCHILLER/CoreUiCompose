@@ -29,7 +29,8 @@ internal fun getDayOfWeekLabels(locale: Locale): Map<DayOfWeek, String> = when {
     Locale.SIMPLIFIED_CHINESE.let { locale.language == it.language && locale.country == it.country } -> getSimplifiedChineseDayOfWeekLabels()
     Locale.JAPANESE.let { locale.language == it.language } -> getJapaneseDayOfWeekLabels()
     locale.let { Locale.forLanguageTag("fa_IR").language == it.language } -> getPersianDayOfWeekLabels()
-    else -> getDefaultDayOfWeekLabels(locale)
+   // else -> getDefaultDayOfWeekLabels(locale)
+    else -> getPersianDayOfWeekLabels()
 }
 
 /**
@@ -73,12 +74,11 @@ private fun getJapaneseDayOfWeekLabels(): Map<DayOfWeek, String> = mapOf(
 )
 
 private fun getPersianDayOfWeekLabels(): Map<DayOfWeek, String> = mapOf(
-    DayOfWeek.SATURDAY to "شنبه",
-    DayOfWeek.SUNDAY to "یکشنبه",
     DayOfWeek.MONDAY to "دوشنبه",
     DayOfWeek.TUESDAY to "سه‌شنبه",
     DayOfWeek.WEDNESDAY to "چهارشنبه",
     DayOfWeek.THURSDAY to "پنجشنبه",
     DayOfWeek.FRIDAY to "جمعه",
-
+    DayOfWeek.SATURDAY to "شنبه",
+    DayOfWeek.SUNDAY to "یکشنبه",
 )

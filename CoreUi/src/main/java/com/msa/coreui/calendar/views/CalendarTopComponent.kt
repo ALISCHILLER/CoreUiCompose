@@ -29,19 +29,29 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.msa.coreui.R
-
 import com.msa.coreui.calendar.models.CalendarConfig
 import com.msa.coreui.calendar.models.CalendarDisplayMode
 import com.msa.coreui.calendar.models.CalendarStyle
+import com.msa.coreui.calendar.utils.JalaliCalendar
+import com.msa.coreui.calendar.utils.JalaliCalendar.getCalendar
+import com.msa.coreui.calendar.utilspersion.extensions.toPersianMonth
+import com.msa.coreui.calendar.utilspersion.extensions.toString
 import java.time.LocalDate
+import java.time.ZoneId
+import java.time.ZoneOffset
+import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
+import java.util.Calendar
+import java.util.Date
 import com.msa.corebase.R as RC
+
 
 /**
  * Top header component of the calendar dialog.
@@ -72,14 +82,23 @@ internal fun CalendarTopComponent(
     yearSelectionEnabled: Boolean,
     onMonthClick: () -> Unit,
     onYearClick: () -> Unit,
+    persiandate: JalaliCalendar
 ) {
 
+    var context = LocalContext.current
     val enterTransition = expandIn(expandFrom = Alignment.Center, clip = false) + fadeIn()
     val exitTransition = shrinkOut(shrinkTowards = Alignment.Center, clip = false) + fadeOut()
 
     val chevronAVD = AnimatedImageVector.animatedVectorResource(R.drawable.avd_chevron_down_up)
     var chevronMonthAtEnd by remember { mutableStateOf(false) }
     var chevronYearAtEnd by remember { mutableStateOf(false) }
+    var month = persiandate.get(
+        Calendar.MONTH
+    ) + 1
+    var years= toString( persiandate.get(
+        Calendar.YEAR
+    ))
+
 
     LaunchedEffect(mode) {
         when (mode) {
@@ -87,6 +106,7 @@ internal fun CalendarTopComponent(
                 chevronMonthAtEnd = false
                 chevronYearAtEnd = false
             }
+
             CalendarDisplayMode.MONTH -> chevronYearAtEnd = false
             CalendarDisplayMode.YEAR -> chevronMonthAtEnd = false
         }
@@ -145,9 +165,12 @@ internal fun CalendarTopComponent(
                     },
                 verticalAlignment = Alignment.CenterVertically
             ) {
+
+
                 Text(
                     modifier = selectableItemModifier,
-                    text = cameraDate.format(DateTimeFormatter.ofPattern("MMM")),
+                    // text = cameraDate.format(DateTimeFormatter.ofPattern("MMM")),
+                    text = month.toPersianMonth(context),
                     style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
                     textAlign = TextAlign.Center
                 )
@@ -173,7 +196,8 @@ internal fun CalendarTopComponent(
             ) {
                 Text(
                     modifier = selectableItemModifier,
-                    text = cameraDate.format(DateTimeFormatter.ofPattern("yyyy")),
+                    //text = cameraDate.format(DateTimeFormatter.ofPattern("yyyy")),
+                    text = years,
                     style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
                     textAlign = TextAlign.Center
                 )
@@ -245,11 +269,18 @@ internal fun CalendarTopLandscapeComponent(
     onNext: () -> Unit,
     onMonthClick: () -> Unit,
     onYearClick: () -> Unit,
-) {
+    persiandate: JalaliCalendar
 
+) {
+    var context = LocalContext.current
     val enterTransition = expandIn(expandFrom = Alignment.Center, clip = false) + fadeIn()
     val exitTransition = shrinkOut(shrinkTowards = Alignment.Center, clip = false) + fadeOut()
-
+    var month = persiandate.get(
+        Calendar.MONTH
+    ) + 1
+    var years= toString( persiandate.get(
+        Calendar.YEAR
+    ))
     val chevronAVD = AnimatedImageVector.animatedVectorResource(R.drawable.avd_chevron_down_up)
     var chevronMonthAtEnd by remember { mutableStateOf(false) }
     var chevronYearAtEnd by remember { mutableStateOf(false) }
@@ -260,6 +291,7 @@ internal fun CalendarTopLandscapeComponent(
                 chevronMonthAtEnd = false
                 chevronYearAtEnd = false
             }
+
             CalendarDisplayMode.MONTH -> chevronYearAtEnd = false
             CalendarDisplayMode.YEAR -> chevronMonthAtEnd = false
         }
@@ -291,7 +323,8 @@ internal fun CalendarTopLandscapeComponent(
         ) {
             Text(
                 modifier = selectableItemModifier.weight(1f),
-                text = cameraDate.format(DateTimeFormatter.ofPattern("yyyy")),
+              //  text = cameraDate.format(DateTimeFormatter.ofPattern("yyyy")),
+                text = years,
                 style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
                 textAlign = TextAlign.Start
             )
@@ -319,7 +352,8 @@ internal fun CalendarTopLandscapeComponent(
         ) {
             Text(
                 modifier = selectableItemModifier.weight(1f),
-                text = cameraDate.format(DateTimeFormatter.ofPattern("MMM")),
+                //text = cameraDate.format(DateTimeFormatter.ofPattern("MMM")),
+                text = month.toPersianMonth(context),
                 style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
                 textAlign = TextAlign.Start
             )
