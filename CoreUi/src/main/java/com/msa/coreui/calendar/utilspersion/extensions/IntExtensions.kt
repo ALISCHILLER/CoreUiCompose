@@ -79,3 +79,6 @@ fun Int.toPersianNumber(): String {
 }
 
 
+fun toString(number: Int): String {
+    return if (number < 10) "0$number" else number.toString()
+}

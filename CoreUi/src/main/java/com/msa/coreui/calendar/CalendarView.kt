@@ -22,6 +22,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.msa.corebase.models.base.*
@@ -31,13 +32,23 @@ import com.msa.coreui.calendar.models.CalendarConfig
 import com.msa.coreui.calendar.models.CalendarDisplayMode
 import com.msa.coreui.calendar.models.CalendarSelection
 import com.msa.coreui.calendar.models.CalendarStyle
+import com.msa.coreui.calendar.utils.JalaliCalendar
 import com.msa.coreui.calendar.utils.endValue
 import com.msa.coreui.calendar.utils.getDayOfWeekLabels
 import com.msa.coreui.calendar.utils.startValue
 import com.msa.coreui.calendar.views.*
 import java.time.LocalDate
+import java.time.ZoneOffset
+import java.util.Date
 import java.util.Locale
 
+/**
+ * Calendar dialog for the use-case to select a date or period in a typical calendar-view.
+ * @param useCaseState The state of the sheet.
+ * @param selection The selection configuration for the dialog view.
+ * @param config The general configuration for the dialog view.
+ * @param header The header to be displayed at the top of the dialog view.
+ */
 @ExperimentalMaterial3Api
 @Composable
 fun CalendarView(
@@ -68,9 +79,15 @@ fun CalendarView(
         }
     }
 
-    val weekdays = remember { getDayOfWeekLabels(config.locale) }
-
+    val persianLocale = Locale("fa_IR", "IR")
+  //  val weekdays = remember { getDayOfWeekLabels(config.locale) }
+    val weekdays = remember { getDayOfWeekLabels(persianLocale) }
     val density = LocalDensity.current
+    val zoneOffset = ZoneOffset.ofHoursMinutes(3, 30)
+    val date = Date.from(calendarState.cameraDate.atStartOfDay().toInstant(zoneOffset))
+    var persiondate= JalaliCalendar.getCalendar(date)
+
+
     FrameBase(
         header = header,
         config = config,
@@ -90,6 +107,7 @@ fun CalendarView(
                 onMonthClick = calendarState::onMonthSelectionClick,
                 yearSelectionEnabled = calendarState.isYearSelectionEnabled,
                 onYearClick = calendarState::onYearSelectionClick,
+                persiandate= persiondate
             )
             CalendarBaseSelectionComponent(
                 modifier = Modifier.wrapContentHeight(),
@@ -149,6 +167,7 @@ fun CalendarView(
                         onNext = calendarState::onNext,
                         onMonthClick = { calendarState.onMonthSelectionClick() },
                         onYearClick = { calendarState.onYearSelectionClick() },
+                        persiandate=persiondate
                     )
                     Spacer(modifier = Modifier.width(16.dp))
                     CalendarBaseSelectionComponent(
