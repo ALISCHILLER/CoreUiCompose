@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -35,8 +36,13 @@ import com.msa.corebase.models.base.LibOrientation
 import com.msa.coreui.calendar.models.CalendarDateData
 import com.msa.coreui.calendar.models.CalendarSelection
 import com.msa.coreui.calendar.utils.Constants
+import com.msa.coreui.calendar.utils.JalaliCalendar
+import com.msa.coreui.calendar.utilspersion.extensions.toPersianNumber
 import java.time.LocalDate
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import java.util.Calendar
+import java.util.Date
 import com.msa.corebase.R as RC
 
 /**
@@ -66,10 +72,12 @@ internal fun CalendarDateItemComponent(
             topEnd = CornerSize(0.dp),
             bottomEnd = CornerSize(0.dp)
         )
+
         data.selectedEnd -> defaultShape.copy(
             topStart = CornerSize(0.dp),
             bottomStart = CornerSize(0.dp)
         )
+
         data.selectedBetween -> RoundedCornerShape(0)
         else -> defaultShape
     }
@@ -103,10 +111,12 @@ internal fun CalendarDateItemComponent(
             data.selectedBetween || data.selected -> MaterialTheme.typography.bodySmall.copy(
                 MaterialTheme.colorScheme.onPrimary
             )
+
             today -> MaterialTheme.typography.labelMedium.copy(
                 color = MaterialTheme.colorScheme.primary,
                 fontWeight = FontWeight.Bold
             )
+
             else -> MaterialTheme.typography.bodySmall
         }
 
@@ -127,7 +137,19 @@ internal fun CalendarDateItemComponent(
         data.disabledPassively -> Constants.DATE_ITEM_DISABLED_TIMELINE_OPACITY
         else -> Constants.DATE_ITEM_OPACITY
     }
+    val density = LocalDensity.current
+    val zoneOffset = ZoneOffset.ofHoursMinutes(3, 30)
 
+
+    var dayString:String=""
+    if (data.date != null) {
+        var datez = Date.from(data.date?.atStartOfDay()?.toInstant(zoneOffset))
+        var persiondate = JalaliCalendar.getCalendar(datez)
+        var day = persiondate.get(
+            Calendar.DAY_OF_MONTH
+        )
+        dayString=day.toPersianNumber()
+    }
     Column(modifier = parentModifier) {
         Row(
             modifier = cellModifier,
@@ -139,7 +161,8 @@ internal fun CalendarDateItemComponent(
                     .weight(1f)
                     .alpha(textAlpha),
                 text = data.date?.format(DateTimeFormatter.ofPattern("d"))
-                    ?.takeUnless { data.otherMonth } ?: "",
+                ?.takeUnless { data.otherMonth } ?: "",
+              //  text = dayString,
                 style = textStyle,
                 textAlign = TextAlign.Center
             )

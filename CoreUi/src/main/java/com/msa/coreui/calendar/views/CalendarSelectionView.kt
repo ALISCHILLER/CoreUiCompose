@@ -58,7 +58,9 @@ internal fun LazyGridScope.setupCalendarSelectionView(
     selectedDates: List<LocalDate>?,
     selectedRange: Pair<LocalDate?, LocalDate?>,
 ) {
-    items(dayOfWeekLabels.values.toList()) { dayOfWeekLabel -> CalendarHeaderItemComponent(dayOfWeekLabel) }
+    items(dayOfWeekLabels.values.toList()) { dayOfWeekLabel ->
+        CalendarHeaderItemComponent(dayOfWeekLabel)
+    }
     item(span = { GridItemSpan(cells) }) { Spacer(modifier = Modifier.height(dimensionResource(RC.dimen.scd_small_50))) }
     items(data.offsetStart) {
         CalendarDateItemComponent(

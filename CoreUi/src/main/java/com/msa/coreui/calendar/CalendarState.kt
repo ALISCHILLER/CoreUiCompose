@@ -21,10 +21,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import com.msa.corebase.views.BaseTypeState
 import com.msa.coreui.calendar.models.*
 import com.msa.coreui.calendar.utils.*
+import com.msa.coreui.calendar.utils.DataPersion.PersianMonth
 import java.io.Serializable
 import java.time.DayOfWeek
 import java.time.LocalDate
-import java.time.Month
 
 /**
  * Handles the calendar state.
@@ -76,7 +76,7 @@ internal class CalendarState(
         config.boundary.start.year..config.boundary.endInclusive.year
 
     private fun getInitMonthsData(): CalendarMonthData =
-        calcMonthData(config, cameraDate)
+        calcPersionMonthData(config, cameraDate)
 
     private fun getInitCalendarData(): CalendarData {
         return calcCalendarData(config, cameraDate)
@@ -178,7 +178,7 @@ internal class CalendarState(
         }
     }
 
-    fun onMonthClick(month: Month) {
+    fun onMonthClick(month: PersianMonth) {
         cameraDate = cameraDate.withMonth(month.value).startOfWeekOrMonth
         mode = CalendarDisplayMode.CALENDAR
         refreshData()

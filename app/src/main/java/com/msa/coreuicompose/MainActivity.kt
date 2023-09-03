@@ -36,10 +36,11 @@ class MainActivity : ComponentActivity() {
                     ) {
 
                         //LoadingThreePoints()
-                        val currentSample = rememberSaveable { mutableStateOf<Sample?>(null) }
-                        val onReset = { currentSample.value = null }
-                        val onResetSheet: UseCaseState.() -> Unit = { currentSample.value = null }
-                        CalendarSample1(closeSelection = onResetSheet)
+//                        val currentSample = rememberSaveable { mutableStateOf<Sample?>(null) }
+//                        val onReset = { currentSample.value = null }
+//                        val onResetSheet: UseCaseState.() -> Unit = { currentSample.value = null }
+//                        CalendarSample1(closeSelection = onResetSheet)
+                        MyCompose()
                     }
 
                 }

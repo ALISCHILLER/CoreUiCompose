@@ -15,8 +15,7 @@
  */
 package com.msa.coreui.calendar.models
 
-import com.msa.coreui.calendar.utils.PersianMonth
-import java.time.Month
+import com.msa.coreui.calendar.utils.DataPersion.PersianMonth
 
 /**
  * Defines information for the months selection.
@@ -25,7 +24,7 @@ import java.time.Month
  * @param thisMonth the current month.
  */
 internal data class CalendarMonthData(
-    val selected: Month,
-    val disabled: List<Month>,
-    val thisMonth: Month,
+    val selected: PersianMonth,
+    val disabled: List<PersianMonth>,
+    val thisMonth: PersianMonth,
 )

@@ -17,9 +17,9 @@ package com.msa.coreui.calendar.utils
 
 import androidx.annotation.RestrictTo
 import com.msa.coreui.calendar.models.*
+import com.msa.coreui.calendar.utils.DataPersion.PersianMonth
 import java.time.DayOfWeek
 import java.time.LocalDate
-import java.time.Month
 import java.time.temporal.TemporalAdjusters
 import java.time.temporal.WeekFields
 import java.util.*
@@ -215,13 +215,36 @@ internal val List<LocalDate?>.endValue: LocalDate?
 /**
  * Calculate the month data based on the camera date and the restrictions.
  */
+//@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
+//internal fun calcMonthData(
+//    config: CalendarConfig,
+//    cameraDate: LocalDate,
+//    today: LocalDate = LocalDate.now()
+//): CalendarMonthData {
+//    val months = Month.values().toMutableList()
+//
+//    // Check that months are within the boundary
+//    val boundaryFilteredMonths = months.filter { month ->
+//        val maxDayOfMonth = month.length(cameraDate.isLeapYear)
+//        val startDay = minOf(config.boundary.start.dayOfMonth, maxDayOfMonth)
+//        val endDay = minOf(config.boundary.endInclusive.dayOfMonth, maxDayOfMonth)
+//        val cameraDateWithMonth = cameraDate.withMonth(month.value).withDayOfMonth(startDay)
+//        cameraDateWithMonth in config.boundary || cameraDateWithMonth.withDayOfMonth(endDay) in config.boundary
+//    }
+//
+//    return CalendarMonthData(
+//        selected = cameraDate.month,
+//        thisMonth = today.month,
+//        disabled = months.minus(boundaryFilteredMonths.toSet()),
+//    )
+//}
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-internal fun calcMonthData(
+internal fun calcPersionMonthData(
     config: CalendarConfig,
     cameraDate: LocalDate,
     today: LocalDate = LocalDate.now()
 ): CalendarMonthData {
-    val months = Month.values().toMutableList()
+    val months = PersianMonth.values().toMutableList()
 
     // Check that months are within the boundary
     val boundaryFilteredMonths = months.filter { month ->
@@ -231,29 +254,32 @@ internal fun calcMonthData(
         val cameraDateWithMonth = cameraDate.withMonth(month.value).withDayOfMonth(startDay)
         cameraDateWithMonth in config.boundary || cameraDateWithMonth.withDayOfMonth(endDay) in config.boundary
     }
-
+    val selected = PersianMonth.from(cameraDate.month)
+    val thisMonth = PersianMonth.from(today.month)
     return CalendarMonthData(
-        selected = cameraDate.month,
-        thisMonth = today.month,
+        selected = selected,
+        thisMonth = thisMonth,
         disabled = months.minus(boundaryFilteredMonths.toSet()),
     )
 }
-
 /**
  * Calculate the calendar data based on the camera-date.
  */
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 internal fun calcCalendarData(config: CalendarConfig, cameraDate: LocalDate): CalendarData {
-    var weekCameraDate = cameraDate
+
+    val persianDate = PersianDateConverter.gregorianToPersian(cameraDate)
+    var weekCameraDate = persianDate
+
     val offsetStart = when (config.style) {
-        CalendarStyle.MONTH -> cameraDate.withDayOfMonth(Constants.FIRST_DAY_IN_MONTH).dayOfWeek.ordinal
+        CalendarStyle.MONTH -> persianDate.withDayOfMonth(Constants.FIRST_DAY_IN_MONTH).dayOfWeek.ordinal
         CalendarStyle.WEEK -> {
-            val dayOfWeekInMonth = cameraDate.withDayOfMonth(Constants.FIRST_DAY_IN_MONTH).dayOfWeek
+            val dayOfWeekInMonth = persianDate.withDayOfMonth(Constants.FIRST_DAY_IN_MONTH).dayOfWeek
             val diff = dayOfWeekInMonth.ordinal
             val value = if (weekCameraDate.dayOfMonth <= Constants.DAYS_IN_WEEK && diff > 0) {
                 val offset = weekCameraDate.dayOfWeek.ordinal
                 if (weekCameraDate.dayOfWeek != DayOfWeek.MONDAY) {
-                    weekCameraDate = cameraDate.minusDays(offset.toLong())
+                    weekCameraDate = persianDate.minusDays(offset.toLong())
                     offset
                 } else weekCameraDate.dayOfWeek.ordinal
             } else weekCameraDate.dayOfWeek.ordinal
@@ -262,7 +288,7 @@ internal fun calcCalendarData(config: CalendarConfig, cameraDate: LocalDate): Ca
     }
 
     val days = when (config.style) {
-        CalendarStyle.MONTH -> cameraDate.lengthOfMonth()
+        CalendarStyle.MONTH -> persianDate.lengthOfMonth()
         CalendarStyle.WEEK -> DayOfWeek.values().size - offsetStart
     }
 

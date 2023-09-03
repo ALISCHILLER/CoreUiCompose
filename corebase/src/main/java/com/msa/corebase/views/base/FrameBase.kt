@@ -27,6 +27,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.unit.LayoutDirection
 import com.msa.corebase.models.base.BaseConfigs
 import com.msa.corebase.models.base.Header
 import com.msa.corebase.models.base.LibOrientation
@@ -58,7 +59,8 @@ fun FrameBase(
     buttonsVisible: Boolean = true,
     buttons: @Composable (ColumnScope.(LibOrientation) -> Unit)? = null,
 ) {
-    val layoutDirection = LocalLayoutDirection.current
+   // val layoutDirection = LocalLayoutDirection.current
+    val layoutDirection = LayoutDirection.Rtl
     val shouldUseLandscapeLayout = shouldUseLandscape()
     val currentOrientation = LocalConfiguration.current.orientation
     val isDeviceLandscape = currentOrientation == Configuration.ORIENTATION_LANDSCAPE
