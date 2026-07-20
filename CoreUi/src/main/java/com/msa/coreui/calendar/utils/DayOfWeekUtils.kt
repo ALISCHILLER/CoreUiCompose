@@ -74,6 +74,15 @@ private fun getJapaneseDayOfWeekLabels(): Map<DayOfWeek, String> = mapOf(
 )
 
 private fun getPersianDayOfWeekLabels(): Map<DayOfWeek, String> = mapOf(
+<<<<<<< HEAD
+=======
+    DayOfWeek.SATURDAY to "شنبه",
+    DayOfWeek.SUNDAY to "یکشنبه",
+    DayOfWeek.MONDAY to "دوشنبه",
+    DayOfWeek.TUESDAY to "سه‌",
+    DayOfWeek.WEDNESDAY to "چهار",
+    DayOfWeek.THURSDAY to "پنج",
+>>>>>>> origin/devsol
     DayOfWeek.FRIDAY to "جمعه",
     DayOfWeek.THURSDAY to "پنجشنبه",
     DayOfWeek.WEDNESDAY to "چهارشنبه",
