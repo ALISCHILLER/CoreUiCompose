@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "product": "MSA Core UI",
+  "targetVersion": "5.7.0",
+  "decision": "hold-for-external-build-and-runtime-verification",
+  "gates": [
+    {
+      "id": "GATE-A",
+      "name": "Source and Static",
+      "status": "passed",
+      "evidence": [
+        "scripts/static-audit.sh",
+        "scripts/verify-distribution.sh",
+        "scripts/verify-prd-traceability.py",
+        "scripts/verify-calendar-standalone.sh",
+        "VERIFICATION.md"
+      ]
+    },
+    {
+      "id": "GATE-B",
+      "name": "Build",
+      "status": "blocked",
+      "reason": "Gradle distribution/dependencies and Android SDK unavailable in delivery environment",
+      "exitCriteria": [
+        "Fresh dependency resolution",
+        "Android debug build",
+        "Minified release build",
+        "Release lint"
+      ]
+    },
+    {
+      "id": "GATE-C",
+      "name": "Tests",
+      "status": "partial",
+      "evidence": [
+        "scripts/verify-calendar-standalone.sh",
+        "VERIFICATION.md",
+        "core-ui-calendar-core/src/test",
+        "core-ui-calendar/src/test",
+        "core-ui-components/src/androidTest",
+        "catalog/src/test",
+        "catalog/src/androidTest"
+      ],
+      "exitCriteria": [
+        "Catalog settings codec tests pass",
+        "Gradle unit test tasks pass",
+        "Instrumented tests pass on API 26 and current API"
+      ]
+    },
+    {
+      "id": "GATE-D",
+      "name": "Distribution",
+      "status": "configured-not-executed",
+      "evidence": [
+        "core-ui-bom/build.gradle.kts",
+        "maven-consumer/build.gradle.kts",
+        ".github/workflows/release-candidate.yml"
+      ],
+      "exitCriteria": [
+        "All publications produced",
+        "POM inspected",
+        "Clean Maven consumer compiles",
+        "Dokka generated",
+        "checksums recorded"
+      ]
+    },
+    {
+      "id": "GATE-E",
+      "name": "Runtime",
+      "status": "not-executed",
+      "exitCriteria": [
+        "Catalog release APK installed",
+        "Single/Range/Multiple picker smoke",
+        "RTL/LTR and Persian/English smoke",
+        "TalkBack smoke",
+        "Minified release smoke",
+        "Persisted settings and activity recreation smoke"
+      ]
+    }
+  ]
+}

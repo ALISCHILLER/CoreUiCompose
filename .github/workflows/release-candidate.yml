@@ -1,0 +1,47 @@
+name: Release Candidate
+
+on:
+  push:
+    tags: [ "v*" ]
+  workflow_dispatch:
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v6
+      - run: chmod +x gradlew
+      - name: Static distribution gates
+        run: |
+          chmod +x scripts/*.sh
+          ./scripts/check-version-alignment.sh
+          ./scripts/verify-distribution.sh
+
+      - name: Verify release candidate
+        run: ./gradlew --stacktrace releaseCandidateCheck
+      - uses: actions/upload-artifact@v5
+        with:
+          name: msa-core-ui-${{ github.ref_name }}
+          retention-days: 30
+          if-no-files-found: error
+          path: |
+            **/build/outputs/aar/*.aar
+            core-ui-calendar-core/build/libs/*.jar
+            catalog/build/outputs/apk/release/*.apk
+            build/repository/**
+            build/dokka/html/**

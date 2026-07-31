@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "product": "MSA Core UI",
+  "releaseId": "5.7.0-rc.2",
+  "targetVersion": "5.7.0",
+  "documentVersion": "5.1-RC2",
+  "status": "production-oriented-release-candidate",
+  "releaseDecision": "hold-for-external-build-and-runtime-verification",
+  "sourceRevision": null,
+  "group": "com.msa.coreui",
+  "artifacts": [
+    "core-ui-bom",
+    "core-ui-calendar-core",
+    "core-ui-foundation",
+    "core-ui-components",
+    "core-ui-calendar",
+    "core-ui"
+  ],
+  "minimumAndroidApi": 26,
+  "compileSdk": 36,
+  "jvmTarget": 17,
+  "requirementsTraceability": "release/requirements-traceability.json",
+  "releaseGates": "release/release-gates.json",
+  "requiredGates": [
+    "static-audit",
+    "unit-tests",
+    "android-lint",
+    "debug-build",
+    "minified-release-build",
+    "instrumented-tests",
+    "maven-consumer",
+    "dokka",
+    "runtime-smoke"
+  ]
+}

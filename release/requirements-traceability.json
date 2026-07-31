@@ -1,0 +1,725 @@
+{
+  "schemaVersion": 1,
+  "product": "MSA Core UI",
+  "targetVersion": "5.7.0",
+  "requirements": [
+    {
+      "id": "FR-001",
+      "module": "core-ui-foundation",
+      "gate": "GATE-B",
+      "status": "build-verification-required",
+      "verification": "Android unit/build + Catalog inspection",
+      "evidence": [
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTheme.kt",
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTokens.kt",
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreAdaptiveLayout.kt",
+        "core-ui-foundation/src/test/java/com/msa/coreui/foundation/CoreUiTokensTest.kt"
+      ]
+    },
+    {
+      "id": "FR-002",
+      "module": "core-ui-foundation",
+      "gate": "GATE-B",
+      "status": "build-verification-required",
+      "verification": "Android unit/build + Catalog inspection",
+      "evidence": [
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTheme.kt",
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTokens.kt",
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreAdaptiveLayout.kt",
+        "core-ui-foundation/src/test/java/com/msa/coreui/foundation/CoreUiTokensTest.kt"
+      ]
+    },
+    {
+      "id": "FR-003",
+      "module": "core-ui-foundation",
+      "gate": "GATE-B",
+      "status": "build-verification-required",
+      "verification": "Android unit/build + Catalog inspection",
+      "evidence": [
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTheme.kt",
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTokens.kt",
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreAdaptiveLayout.kt",
+        "core-ui-foundation/src/test/java/com/msa/coreui/foundation/CoreUiTokensTest.kt"
+      ]
+    },
+    {
+      "id": "FR-004",
+      "module": "core-ui-foundation",
+      "gate": "GATE-B",
+      "status": "build-verification-required",
+      "verification": "Android unit/build + Catalog inspection",
+      "evidence": [
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTheme.kt",
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTokens.kt",
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreAdaptiveLayout.kt",
+        "core-ui-foundation/src/test/java/com/msa/coreui/foundation/CoreUiTokensTest.kt"
+      ]
+    },
+    {
+      "id": "FR-005",
+      "module": "core-ui-foundation",
+      "gate": "GATE-B",
+      "status": "build-verification-required",
+      "verification": "Android unit/build + Catalog inspection",
+      "evidence": [
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTheme.kt",
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTokens.kt",
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreAdaptiveLayout.kt",
+        "core-ui-foundation/src/test/java/com/msa/coreui/foundation/CoreUiTokensTest.kt"
+      ]
+    },
+    {
+      "id": "FR-101",
+      "module": "core-ui-components",
+      "gate": "GATE-C",
+      "status": "test-defined-not-executed",
+      "verification": "Compose UI tests + API review",
+      "evidence": [
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreButton.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreTextField.kt",
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreButtonTest.kt"
+      ]
+    },
+    {
+      "id": "FR-102",
+      "module": "core-ui-components",
+      "gate": "GATE-C",
+      "status": "test-defined-not-executed",
+      "verification": "Compose UI tests + API review",
+      "evidence": [
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreButton.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreTextField.kt",
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreButtonTest.kt"
+      ]
+    },
+    {
+      "id": "FR-103",
+      "module": "core-ui-components",
+      "gate": "GATE-C",
+      "status": "test-defined-not-executed",
+      "verification": "Compose UI tests + API review",
+      "evidence": [
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreButton.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreTextField.kt",
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreButtonTest.kt"
+      ]
+    },
+    {
+      "id": "FR-104",
+      "module": "core-ui-components",
+      "gate": "GATE-C",
+      "status": "test-defined-not-executed",
+      "verification": "Compose semantics tests + consumer compile",
+      "evidence": [
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreSelectionControls.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreFeedback.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreProgress.kt",
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreComponentsSemanticsTest.kt",
+        "consumer-smoke/src/main/java/com/msa/coreui/consumer/ConsumerSmokeScreen.kt"
+      ]
+    },
+    {
+      "id": "FR-105",
+      "module": "core-ui-components",
+      "gate": "GATE-C",
+      "status": "test-defined-not-executed",
+      "verification": "Compose semantics tests + consumer compile",
+      "evidence": [
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreSelectionControls.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreFeedback.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreProgress.kt",
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreComponentsSemanticsTest.kt",
+        "consumer-smoke/src/main/java/com/msa/coreui/consumer/ConsumerSmokeScreen.kt"
+      ]
+    },
+    {
+      "id": "FR-106",
+      "module": "core-ui-components",
+      "gate": "GATE-C",
+      "status": "test-defined-not-executed",
+      "verification": "Compose semantics tests + consumer compile",
+      "evidence": [
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreSelectionControls.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreFeedback.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreProgress.kt",
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreComponentsSemanticsTest.kt",
+        "consumer-smoke/src/main/java/com/msa/coreui/consumer/ConsumerSmokeScreen.kt"
+      ]
+    },
+    {
+      "id": "FR-107",
+      "module": "core-ui-components",
+      "gate": "GATE-C",
+      "status": "test-defined-not-executed",
+      "verification": "Compose semantics tests + consumer compile",
+      "evidence": [
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreSelectionControls.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreFeedback.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreProgress.kt",
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreComponentsSemanticsTest.kt",
+        "consumer-smoke/src/main/java/com/msa/coreui/consumer/ConsumerSmokeScreen.kt"
+      ]
+    },
+    {
+      "id": "FR-201",
+      "module": "core-ui-calendar-core",
+      "gate": "GATE-C",
+      "status": "standalone-test-passed",
+      "verification": "Strict JVM compile + full-range round-trip + public API tests",
+      "evidence": [
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/PersianCalendar.kt",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/PersianDateFormatter.kt",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/model/PersianDate.kt",
+        "core-ui-calendar-core/src/test/kotlin/com/msa/coreui/calendar/PersianCalendarEngineTest.kt",
+        "core-ui-calendar-core/src/test/kotlin/com/msa/coreui/calendar/PersianCalendarPublicApiTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-202",
+      "module": "core-ui-calendar-core",
+      "gate": "GATE-C",
+      "status": "standalone-test-passed",
+      "verification": "Strict JVM compile + full-range round-trip + public API tests",
+      "evidence": [
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/PersianCalendar.kt",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/PersianDateFormatter.kt",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/model/PersianDate.kt",
+        "core-ui-calendar-core/src/test/kotlin/com/msa/coreui/calendar/PersianCalendarEngineTest.kt",
+        "core-ui-calendar-core/src/test/kotlin/com/msa/coreui/calendar/PersianCalendarPublicApiTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-203",
+      "module": "core-ui-calendar-core",
+      "gate": "GATE-C",
+      "status": "standalone-test-passed",
+      "verification": "Strict JVM compile + full-range round-trip + public API tests",
+      "evidence": [
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/PersianCalendar.kt",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/PersianDateFormatter.kt",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/model/PersianDate.kt",
+        "core-ui-calendar-core/src/test/kotlin/com/msa/coreui/calendar/PersianCalendarEngineTest.kt",
+        "core-ui-calendar-core/src/test/kotlin/com/msa/coreui/calendar/PersianCalendarPublicApiTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-204",
+      "module": "core-ui-calendar-core",
+      "gate": "GATE-C",
+      "status": "standalone-test-passed",
+      "verification": "Strict JVM compile + full-range round-trip + public API tests",
+      "evidence": [
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/PersianCalendar.kt",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/PersianDateFormatter.kt",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/model/PersianDate.kt",
+        "core-ui-calendar-core/src/test/kotlin/com/msa/coreui/calendar/PersianCalendarEngineTest.kt",
+        "core-ui-calendar-core/src/test/kotlin/com/msa/coreui/calendar/PersianCalendarPublicApiTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-205",
+      "module": "core-ui-calendar-core",
+      "gate": "GATE-C",
+      "status": "standalone-test-passed",
+      "verification": "Strict JVM compile + full-range round-trip + public API tests",
+      "evidence": [
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/PersianCalendar.kt",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/PersianDateFormatter.kt",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/model/PersianDate.kt",
+        "core-ui-calendar-core/src/test/kotlin/com/msa/coreui/calendar/PersianCalendarEngineTest.kt",
+        "core-ui-calendar-core/src/test/kotlin/com/msa/coreui/calendar/PersianCalendarPublicApiTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-301",
+      "module": "core-ui-calendar",
+      "gate": "GATE-C",
+      "status": "partially-verified",
+      "verification": "State/contract tests passed standalone; Android UI tests pending",
+      "evidence": [
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerState.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerStateTest.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerContractTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-302",
+      "module": "core-ui-calendar",
+      "gate": "GATE-C",
+      "status": "partially-verified",
+      "verification": "State/contract tests passed standalone; Android UI tests pending",
+      "evidence": [
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerState.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerStateTest.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerContractTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-303",
+      "module": "core-ui-calendar",
+      "gate": "GATE-C",
+      "status": "partially-verified",
+      "verification": "State/contract tests passed standalone; Android UI tests pending",
+      "evidence": [
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerState.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerStateTest.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerContractTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-304",
+      "module": "core-ui-calendar",
+      "gate": "GATE-C",
+      "status": "partially-verified",
+      "verification": "State/contract tests passed standalone; Android UI tests pending",
+      "evidence": [
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerState.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerStateTest.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerContractTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-305",
+      "module": "core-ui-calendar",
+      "gate": "GATE-C",
+      "status": "partially-verified",
+      "verification": "State/contract tests passed standalone; Android UI tests pending",
+      "evidence": [
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerState.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerStateTest.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerContractTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-306",
+      "module": "core-ui-calendar",
+      "gate": "GATE-C",
+      "status": "partially-verified",
+      "verification": "State/contract tests passed standalone; Android UI tests pending",
+      "evidence": [
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerState.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerStateTest.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerContractTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-307",
+      "module": "core-ui-calendar",
+      "gate": "GATE-C",
+      "status": "partially-verified",
+      "verification": "State/contract tests passed standalone; Android UI tests pending",
+      "evidence": [
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerState.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerStateTest.kt",
+        "core-ui-calendar/src/test/java/com/msa/coreui/calendar/PersianDatePickerContractTest.kt",
+        "VERIFICATION.md",
+        "scripts/verify-calendar-standalone.sh"
+      ]
+    },
+    {
+      "id": "FR-308",
+      "module": "core-ui-calendar",
+      "gate": "GATE-E",
+      "status": "test-defined-not-executed",
+      "verification": "Instrumented UI, RTL, accessibility and runtime smoke",
+      "evidence": [
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePicker.kt",
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerDialog.kt",
+        "core-ui-calendar/src/androidTest/java/com/msa/coreui/calendar/PersianDatePickerUiTest.kt",
+        "catalog/src/main/java/com/msa/coreui/catalog/CatalogApp.kt"
+      ]
+    },
+    {
+      "id": "FR-309",
+      "module": "core-ui-calendar",
+      "gate": "GATE-E",
+      "status": "test-defined-not-executed",
+      "verification": "Instrumented UI, RTL, accessibility and runtime smoke",
+      "evidence": [
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePicker.kt",
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerDialog.kt",
+        "core-ui-calendar/src/androidTest/java/com/msa/coreui/calendar/PersianDatePickerUiTest.kt",
+        "catalog/src/main/java/com/msa/coreui/catalog/CatalogApp.kt"
+      ]
+    },
+    {
+      "id": "FR-310",
+      "module": "core-ui-calendar",
+      "gate": "GATE-E",
+      "status": "test-defined-not-executed",
+      "verification": "Instrumented UI, RTL, accessibility and runtime smoke",
+      "evidence": [
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePicker.kt",
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerDialog.kt",
+        "core-ui-calendar/src/androidTest/java/com/msa/coreui/calendar/PersianDatePickerUiTest.kt",
+        "catalog/src/main/java/com/msa/coreui/catalog/CatalogApp.kt"
+      ]
+    },
+    {
+      "id": "FR-401",
+      "module": "distribution",
+      "gate": "GATE-D",
+      "status": "configured-not-executed",
+      "verification": "Gradle publication + BOM resolution",
+      "evidence": [
+        "core-ui/build.gradle.kts",
+        "core-ui-bom/build.gradle.kts",
+        "settings.gradle.kts"
+      ]
+    },
+    {
+      "id": "FR-402",
+      "module": "distribution",
+      "gate": "GATE-D",
+      "status": "configured-not-executed",
+      "verification": "Gradle publication + BOM resolution",
+      "evidence": [
+        "core-ui/build.gradle.kts",
+        "core-ui-bom/build.gradle.kts",
+        "settings.gradle.kts"
+      ]
+    },
+    {
+      "id": "FR-403",
+      "module": "distribution",
+      "gate": "GATE-D",
+      "status": "configured-not-executed",
+      "verification": "Gradle publication + BOM resolution",
+      "evidence": [
+        "core-ui/build.gradle.kts",
+        "core-ui-bom/build.gradle.kts",
+        "settings.gradle.kts"
+      ]
+    },
+    {
+      "id": "FR-404",
+      "module": "distribution",
+      "gate": "GATE-D",
+      "status": "configured-not-executed",
+      "verification": "Publish to isolated repository + Maven consumer build + POM inspection",
+      "evidence": [
+        "maven-consumer/build.gradle.kts",
+        "maven-consumer/src/main/java/com/msa/coreui/mavenconsumer/MavenConsumerScreen.kt",
+        ".github/workflows/android.yml",
+        ".github/workflows/release-candidate.yml"
+      ]
+    },
+    {
+      "id": "FR-405",
+      "module": "distribution",
+      "gate": "GATE-D",
+      "status": "configured-not-executed",
+      "verification": "Publish to isolated repository + Maven consumer build + POM inspection",
+      "evidence": [
+        "maven-consumer/build.gradle.kts",
+        "maven-consumer/src/main/java/com/msa/coreui/mavenconsumer/MavenConsumerScreen.kt",
+        ".github/workflows/android.yml",
+        ".github/workflows/release-candidate.yml"
+      ]
+    },
+    {
+      "id": "FR-406",
+      "module": "documentation",
+      "gate": "GATE-A",
+      "status": "statically-reviewed",
+      "verification": "Distribution document presence and consistency audit",
+      "evidence": [
+        "README.md",
+        "API.md",
+        "MIGRATION.md",
+        "CHANGELOG.md",
+        "PRD.md",
+        "RELEASE_CHECKLIST.md"
+      ]
+    },
+    {
+      "id": "NFR-001",
+      "module": "cross-module",
+      "gate": "GATE-A",
+      "status": "statically-reviewed",
+      "verification": "Static audit + JVM contract verification",
+      "evidence": [
+        "scripts/static-audit.sh",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/internal/PersianCalendarEngine.kt",
+        "VERIFICATION.md"
+      ]
+    },
+    {
+      "id": "NFR-002",
+      "module": "cross-module",
+      "gate": "GATE-A",
+      "status": "statically-reviewed",
+      "verification": "Static audit + JVM contract verification",
+      "evidence": [
+        "scripts/static-audit.sh",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/internal/PersianCalendarEngine.kt",
+        "VERIFICATION.md"
+      ]
+    },
+    {
+      "id": "NFR-003",
+      "module": "cross-module",
+      "gate": "GATE-A",
+      "status": "statically-reviewed",
+      "verification": "Static audit + JVM contract verification",
+      "evidence": [
+        "scripts/static-audit.sh",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/internal/PersianCalendarEngine.kt",
+        "VERIFICATION.md"
+      ]
+    },
+    {
+      "id": "NFR-004",
+      "module": "cross-module",
+      "gate": "GATE-A",
+      "status": "statically-reviewed",
+      "verification": "Static audit + JVM contract verification",
+      "evidence": [
+        "scripts/static-audit.sh",
+        "core-ui-calendar-core/src/main/kotlin/com/msa/coreui/calendar/internal/PersianCalendarEngine.kt",
+        "VERIFICATION.md"
+      ]
+    },
+    {
+      "id": "NFR-101",
+      "module": "foundation/calendar/components",
+      "gate": "GATE-C",
+      "status": "partially-verified",
+      "verification": "Source contract tests; Android performance/runtime verification pending",
+      "evidence": [
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTokens.kt",
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerState.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreProgress.kt"
+      ]
+    },
+    {
+      "id": "NFR-102",
+      "module": "foundation/calendar/components",
+      "gate": "GATE-C",
+      "status": "partially-verified",
+      "verification": "Source contract tests; Android performance/runtime verification pending",
+      "evidence": [
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTokens.kt",
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerState.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreProgress.kt"
+      ]
+    },
+    {
+      "id": "NFR-103",
+      "module": "foundation/calendar/components",
+      "gate": "GATE-C",
+      "status": "partially-verified",
+      "verification": "Source contract tests; Android performance/runtime verification pending",
+      "evidence": [
+        "core-ui-foundation/src/main/java/com/msa/coreui/foundation/CoreUiTokens.kt",
+        "core-ui-calendar/src/main/java/com/msa/coreui/calendar/PersianDatePickerState.kt",
+        "core-ui-components/src/main/java/com/msa/coreui/components/CoreProgress.kt"
+      ]
+    },
+    {
+      "id": "NFR-104",
+      "module": "release-governance",
+      "gate": "GATE-E",
+      "status": "statically-reviewed",
+      "verification": "Documentation policy; benchmark evidence required before numeric claim",
+      "evidence": [
+        "PRD.md",
+        "docs/TESTING.md"
+      ]
+    },
+    {
+      "id": "NFR-201",
+      "module": "security",
+      "gate": "GATE-A",
+      "status": "statically-reviewed",
+      "verification": "Manifest/dependency/secret/workflow audit",
+      "evidence": [
+        "scripts/static-audit.sh",
+        "SECURITY.md",
+        ".github/workflows/android.yml"
+      ]
+    },
+    {
+      "id": "NFR-202",
+      "module": "security",
+      "gate": "GATE-A",
+      "status": "statically-reviewed",
+      "verification": "Manifest/dependency/secret/workflow audit",
+      "evidence": [
+        "scripts/static-audit.sh",
+        "SECURITY.md",
+        ".github/workflows/android.yml"
+      ]
+    },
+    {
+      "id": "NFR-203",
+      "module": "security",
+      "gate": "GATE-A",
+      "status": "statically-reviewed",
+      "verification": "Manifest/dependency/secret/workflow audit",
+      "evidence": [
+        "scripts/static-audit.sh",
+        "SECURITY.md",
+        ".github/workflows/android.yml"
+      ]
+    },
+    {
+      "id": "NFR-204",
+      "module": "distribution",
+      "gate": "GATE-D",
+      "status": "configured-not-executed",
+      "verification": "Release manifest, revision and checksum generation",
+      "evidence": [
+        "release/release-manifest.json",
+        "scripts/generate-checksums.sh",
+        ".github/workflows/release-candidate.yml"
+      ]
+    },
+    {
+      "id": "NFR-301",
+      "module": "toolchain/android",
+      "gate": "GATE-B",
+      "status": "build-verification-required",
+      "verification": "Android compile/lint/instrumented compatibility",
+      "evidence": [
+        "gradle/libs.versions.toml",
+        "core-ui-foundation/build.gradle.kts",
+        "core-ui-calendar/build.gradle.kts"
+      ]
+    },
+    {
+      "id": "NFR-302",
+      "module": "toolchain/android",
+      "gate": "GATE-B",
+      "status": "build-verification-required",
+      "verification": "Android compile/lint/instrumented compatibility",
+      "evidence": [
+        "gradle/libs.versions.toml",
+        "core-ui-foundation/build.gradle.kts",
+        "core-ui-calendar/build.gradle.kts"
+      ]
+    },
+    {
+      "id": "NFR-303",
+      "module": "toolchain/android",
+      "gate": "GATE-B",
+      "status": "build-verification-required",
+      "verification": "Android compile/lint/instrumented compatibility",
+      "evidence": [
+        "gradle/libs.versions.toml",
+        "core-ui-foundation/build.gradle.kts",
+        "core-ui-calendar/build.gradle.kts"
+      ]
+    },
+    {
+      "id": "NFR-304",
+      "module": "core-ui-calendar-core",
+      "gate": "GATE-D",
+      "status": "configured-not-executed",
+      "verification": "Java/Maven consumer compile",
+      "evidence": [
+        "core-ui-calendar-core/build.gradle.kts",
+        "maven-consumer/src/main/java/com/msa/coreui/mavenconsumer/MavenConsumerScreen.kt"
+      ]
+    },
+    {
+      "id": "NFR-305",
+      "module": "release-governance",
+      "gate": "GATE-A",
+      "status": "statically-reviewed",
+      "verification": "API compatibility and migration policy review",
+      "evidence": [
+        "docs/API_COMPATIBILITY.md",
+        "MIGRATION.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "id": "NFR-401",
+      "module": "components/calendar/catalog",
+      "gate": "GATE-E",
+      "status": "test-defined-not-executed",
+      "verification": "Compose UI semantics + manual accessibility/adaptive runtime smoke",
+      "evidence": [
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreComponentsSemanticsTest.kt",
+        "core-ui-calendar/src/androidTest/java/com/msa/coreui/calendar/PersianDatePickerUiTest.kt",
+        "docs/ACCESSIBILITY.md",
+        "catalog/src/main/java/com/msa/coreui/catalog/CatalogApp.kt"
+      ]
+    },
+    {
+      "id": "NFR-402",
+      "module": "components/calendar/catalog",
+      "gate": "GATE-E",
+      "status": "test-defined-not-executed",
+      "verification": "Compose UI semantics + manual accessibility/adaptive runtime smoke",
+      "evidence": [
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreComponentsSemanticsTest.kt",
+        "core-ui-calendar/src/androidTest/java/com/msa/coreui/calendar/PersianDatePickerUiTest.kt",
+        "docs/ACCESSIBILITY.md",
+        "catalog/src/main/java/com/msa/coreui/catalog/CatalogApp.kt"
+      ]
+    },
+    {
+      "id": "NFR-403",
+      "module": "components/calendar/catalog",
+      "gate": "GATE-E",
+      "status": "test-defined-not-executed",
+      "verification": "Compose UI semantics + manual accessibility/adaptive runtime smoke",
+      "evidence": [
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreComponentsSemanticsTest.kt",
+        "core-ui-calendar/src/androidTest/java/com/msa/coreui/calendar/PersianDatePickerUiTest.kt",
+        "docs/ACCESSIBILITY.md",
+        "catalog/src/main/java/com/msa/coreui/catalog/CatalogApp.kt"
+      ]
+    },
+    {
+      "id": "NFR-404",
+      "module": "components/calendar/catalog",
+      "gate": "GATE-E",
+      "status": "test-defined-not-executed",
+      "verification": "Compose UI semantics + manual accessibility/adaptive runtime smoke",
+      "evidence": [
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreComponentsSemanticsTest.kt",
+        "core-ui-calendar/src/androidTest/java/com/msa/coreui/calendar/PersianDatePickerUiTest.kt",
+        "docs/ACCESSIBILITY.md",
+        "catalog/src/main/java/com/msa/coreui/catalog/CatalogApp.kt"
+      ]
+    },
+    {
+      "id": "NFR-405",
+      "module": "components/calendar/catalog",
+      "gate": "GATE-E",
+      "status": "test-defined-not-executed",
+      "verification": "Compose UI semantics + manual accessibility/adaptive runtime smoke",
+      "evidence": [
+        "core-ui-components/src/androidTest/java/com/msa/coreui/components/CoreComponentsSemanticsTest.kt",
+        "core-ui-calendar/src/androidTest/java/com/msa/coreui/calendar/PersianDatePickerUiTest.kt",
+        "docs/ACCESSIBILITY.md",
+        "catalog/src/main/java/com/msa/coreui/catalog/CatalogApp.kt"
+      ]
+    }
+  ]
+}

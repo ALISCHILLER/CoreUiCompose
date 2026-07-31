@@ -1,0 +1,49 @@
+name: Android CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+concurrency:
+  group: android-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v6
+      - run: chmod +x gradlew
+      - name: Static distribution gates
+        run: |
+          chmod +x scripts/*.sh
+          ./scripts/check-version-alignment.sh
+          ./scripts/verify-distribution.sh
+
+
+      - name: Build, test, lint, publish, and verify consumers
+        run: ./gradlew --stacktrace releaseCandidateCheck
+
+      - uses: actions/upload-artifact@v5
+        with:
+          name: msa-core-ui-build
+          if-no-files-found: error
+          path: |
+            **/build/outputs/aar/*.aar
+            core-ui-calendar-core/build/libs/*.jar
+            catalog/build/outputs/apk/**/*.apk
+            build/repository/**
+            build/dokka/html/**
